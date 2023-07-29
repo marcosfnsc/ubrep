@@ -49,6 +49,8 @@
   color: #b3b3b3;
   font-size: 12px;
 }
+
+
 .form .message a {
   color: #386DFF;
   text-decoration: none;
@@ -58,4 +60,8 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+
+.text {
+  color: #393939;
 }
