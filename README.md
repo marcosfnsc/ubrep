@@ -1,2 +1,2 @@
 # ubrep
-UBREP - Uniao de bibliotecas da rede estadual pública
+UBREP - Uniao das bibliotecas da rede estadual pública
