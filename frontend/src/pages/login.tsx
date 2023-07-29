@@ -7,9 +7,9 @@ function LoginPage() {
       <p className="text">Uniao de bibliotecas da rede estadual pública</p>
       <div className ="form">
         <form className ="login-form">
-          <input type="text" placeholder="usuario"/>
-          <input type="password" placeholder="senha"/>
-          <button>login</button>
+          <input type="text" placeholder="usuario" required/>
+          <input type="password" placeholder="senha" required/>
+          <button type="submit">login</button>
           <p className ="message">Não resgistrado? <a href="#">Solicitar registro</a></p>
         </form>
       </div>
