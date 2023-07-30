@@ -1,6 +1,12 @@
+import { useNavigate } from 'react-router-dom'
 import css from './login.module.css'
 
 function LoginPage() {
+  const navegate = useNavigate()
+  const handleClick = () => {
+    navegate('/catalogo')
+  }
+
   return (
     <div className={css.container}>
       <div className={css.loginPage}>
@@ -10,7 +16,7 @@ function LoginPage() {
           <form>
             <input type="text" placeholder="usuario" required/>
             <input type="password" placeholder="senha" required/>
-            <button type="submit">login</button>
+            <button type="submit" onClick={handleClick}>login</button>
             <p className ={css.message}>Não resgistrado? <a href="#">Solicitar registro</a></p>
           </form>
         </div>
