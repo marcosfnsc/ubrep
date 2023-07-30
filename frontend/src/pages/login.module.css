@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.login-page {
+.loginPage {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -53,7 +53,7 @@
   color: #386DFF;
   text-decoration: none;
 }
-body {
+.container {
   background: rgb(155,255,246);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
