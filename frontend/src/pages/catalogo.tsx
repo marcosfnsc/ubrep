@@ -6,7 +6,7 @@ function Catalogo() {
     'chapeuzinho vermelho',
     'cinderela'
   ]
-  const listItems = example_data.map(livro => <li>{livro}</li>)
+  const listItems = example_data.map(livro => <li key={livro}>{livro}</li>)
 
   return (
     <div className={css.container}>
