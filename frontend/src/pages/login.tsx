@@ -3,9 +3,6 @@ import css from './login.module.css'
 
 function LoginPage() {
   const navegate = useNavigate()
-  const handleClick = () => {
-    navegate('/catalogo')
-  }
 
   return (
     <div className={css.container}>
@@ -16,7 +13,7 @@ function LoginPage() {
           <form>
             <input type="text" placeholder="usuario" required/>
             <input type="password" placeholder="senha" required/>
-            <button type="submit" onClick={handleClick}>login</button>
+            <button type="submit" onClick={() => navegate('/catalogo')}>login</button>
             <p className ={css.message}>Não resgistrado? <a href="#">Solicitar registro</a></p>
           </form>
         </div>
