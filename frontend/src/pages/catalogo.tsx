@@ -42,9 +42,9 @@ function Catalogo() {
   const list_livros = livros_exemplo.map(livro => table(livro))
 
   return (
-    <div className={css.container}>
+    <div className={css.table}>
       <table>
-        <thead>
+        <thead className={css.thead_dark}>
           <tr>
             <th>Nome</th>
             <th>Autor</th>
