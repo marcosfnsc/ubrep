@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import css from './catalogo.module.css'
 
 const livros_exemplo = [{
@@ -29,33 +31,51 @@ const livros_exemplo = [{
   autor: 'Gerson Silveira Arrares'
 }]
 
-const table = (livro) => {
-  return (
-    <tr key={livro.nome}>
-      <td>{livro.nome}</td>
-      <td>{livro.autor}</td>
-    </tr>
-  )
-}
-
 function Catalogo() {
-  const list_livros = livros_exemplo.map(livro => table(livro))
+  // the value of the search field 
+  const [name, setName] = useState('');
+
+  // the search result
+  const [foundUsers, setFoundUsers] = useState(livros_exemplo);
+
+  const filter = (e) => {
+    const keyword = e.target.value;
+    if (keyword !== '') {
+      const results = livros_exemplo.filter((user) => {
+        return user.nome.toLowerCase().includes(keyword.toLowerCase())
+      });
+      setFoundUsers(results);
+    } else {
+      setFoundUsers(livros_exemplo);
+    }
+
+    setName(keyword);
+  };
 
   return (
-    <div className={css.table}>
-      <table>
-        <thead className={css.thead_dark}>
-          <tr>
-            <th>Nome</th>
-            <th>Autor</th>
-          </tr>
-        </thead>
-        <tbody>
-          {list_livros}
-        </tbody>
-      </table>
+    <div className="container">
+      <input
+        type="search"
+        value={name}
+        onChange={filter}
+        className={css.input}
+        placeholder="Filtrar nome do livro"
+      />
+
+      <div className={css.container}>
+        {foundUsers && foundUsers.length > 0 ? (
+          foundUsers.map((user) => (
+            <li key={user.nome} className={`${css.user} ${css.list}`}>
+              <span className="user-id">{user.nome}</span>
+              <span className={css.author}>{user.autor}</span>
+            </li>
+          ))
+        ) : (
+          <h1>nenhum resultado encontrado</h1>
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
 export default Catalogo
