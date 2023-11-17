@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - front_home_container:/home/user
+      - ./frontend:/home/user/frontend
+
+volumes:
+  front_home_container:
