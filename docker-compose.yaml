@@ -11,6 +11,41 @@ services:
     volumes:
       - front_home_container:/home/user
       - ./frontend:/home/user/frontend
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - back_home_container:/home/user
+      - ./backend:/home/user/backend
+    depends_on:
+      - database
+    networks:
+      - ubrep-network
+
+  database:
+    container_name: database
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_DATABASE:-db-app}
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-secret}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - ubrep-network
 
 volumes:
   front_home_container:
+  back_home_container:
+  db-data:
+
+networks:
+  ubrep-network:

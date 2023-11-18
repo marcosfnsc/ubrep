@@ -1,0 +1,10 @@
+FROM rust:latest
+
+RUN useradd -m user \
+  && chown -R user:user /home/user
+WORKDIR /home/user
+USER user
+
+COPY /docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
