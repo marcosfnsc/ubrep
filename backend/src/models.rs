@@ -6,7 +6,7 @@ use rocket::serde::Serialize;
 #[diesel(table_name = crate::schema::books)]
 #[serde(crate = "rocket::serde")]
 pub struct Book {
-    pub id: i32,
+    pub book_id: i32,
     pub title: String,
     pub author: String,
     pub publisher: String,
