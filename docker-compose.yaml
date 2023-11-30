@@ -22,6 +22,7 @@ services:
     ports:
       - 4000:4000
     volumes:
+      - cargo_folder:/usr/local/cargo
       - back_home_container:/home/user
       - ./backend:/home/user/backend
     depends_on:
@@ -45,6 +46,7 @@ services:
 volumes:
   front_home_container:
   back_home_container:
+  cargo_folder:
   db-data:
 
 networks:
